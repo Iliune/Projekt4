@@ -42,7 +42,7 @@ for i in range(1, steps):
 plt.plot(czas, podatni, label="Podatni", color='lightpink')
 plt.plot(czas, narażeni, label="Narażeni", color='indianred')
 plt.plot(czas, zainfekowani, label="Zainfekowani", color='royalblue')
-plt.plot(czas, martwi, label="Usunięci", color='mediumvioletred')
+plt.plot(czas, martwi, label="Martwi", color='mediumvioletred')
 plt.xlabel("Czas")
 plt.ylabel("Populacja")
 plt.legend()
