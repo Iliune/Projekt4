@@ -32,17 +32,17 @@ h = 0.1
 steps = int(t_max / h) + 1
 
 czas = np.linspace(0, t_max, steps)
-podatni, narażeni, zainfekowani, usunięci = np.zeros(steps), np.zeros(steps), np.zeros(steps), np.zeros(steps)
+podatni, narażeni, zainfekowani, martwi = np.zeros(steps), np.zeros(steps), np.zeros(steps), np.zeros(steps)
 
-podatni[0], narażeni[0], zainfekowani[0], usunięci[0] = s_0, e_0, i_0, r_0
+podatni[0], narażeni[0], zainfekowani[0], martwi[0] = s_0, e_0, i_0, r_0
 
 for i in range(1, steps):
-    podatni[i], narażeni[i], zainfekowani[i], usunięci[i] = metoda_rungego_kutty(podatni[i - 1], narażeni[i - 1], zainfekowani[i - 1], usunięci[i - 1], h)
+    podatni[i], narażeni[i], zainfekowani[i], martwi[i] = metoda_rungego_kutty(podatni[i - 1], narażeni[i - 1], zainfekowani[i - 1], martwi[i - 1], h)
 
 plt.plot(czas, podatni, label="Podatni", color='lightpink')
 plt.plot(czas, narażeni, label="Narażeni", color='indianred')
 plt.plot(czas, zainfekowani, label="Zainfekowani", color='royalblue')
-plt.plot(czas, usunięci, label="Usunięci", color='mediumvioletred')
+plt.plot(czas, martwi, label="Usunięci", color='mediumvioletred')
 plt.xlabel("Czas")
 plt.ylabel("Populacja")
 plt.legend()
